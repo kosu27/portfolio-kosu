@@ -3,6 +3,10 @@ const nextJest = require("next/jest");
 // next.config.jsとテスト環境用の.envファイルが配置されたディレクトリをセット。基本は"./"で良い。
 const createJestConfig = nextJest({ dir: "./" });
 
+/**
+ * @type {import('@jest/types').Config.InitialOptions}
+ **/
+
 // Jestのカスタム設定を設置する場所。従来のプロパティはここで定義。
 const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
