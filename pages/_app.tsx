@@ -1,8 +1,26 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../src/style/index.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import { MantineProvider } from "@mantine/core";
+import type { CustomAppPage } from "next/app";
+import Head from "next/head";
 
-export default MyApp
+const App: CustomAppPage = ({ Component, pageProps }) => {
+  const getLayout =
+    Component.getLayout ||
+    ((page) => {
+      return page;
+    });
+
+  return (
+    <>
+      <Head>
+        <title>ToiletMap</title>
+      </Head>
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        {getLayout(<Component {...pageProps} />)}
+      </MantineProvider>
+    </>
+  );
+};
+
+export default App;
