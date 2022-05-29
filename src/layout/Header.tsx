@@ -5,15 +5,17 @@ import type { FC } from "react";
 import { NextImage } from "src/component/NextImage";
 import { NortificationMenu } from "src/component/NotificationMenu";
 import { SearchBar } from "src/component/SearchBar";
+import { UserIcon } from "src/component/User/UserIcon";
 import { useIsDesktop } from "src/utils/customHooks";
+import type { LoginUser } from "src/utils/User";
 
 import { Notification } from "./Nortification";
 
-// export type HeaderProps = {
-//   user: LoginUser;
-// };
+export type HeaderProps = {
+  user: LoginUser;
+};
 
-const Header: FC = () => {
+const Header: FC<HeaderProps> = (props: HeaderProps) => {
   const isDesktop = useIsDesktop();
 
   const isClient = () => {
@@ -37,6 +39,15 @@ const Header: FC = () => {
             <Menu>
               <Notification isNortification />
               <NortificationMenu />
+            </Menu>
+            {/* User Icon */}
+            <Menu>
+              {props.user.image ? (
+                <UserIcon src={props.user.image} width={45} height={45} />
+              ) : (
+                <UserIcon src="/nouser.svg" width={45} height={45} />
+              )}
+              {/* todo userを渡す */}
             </Menu>
           </>
         ) : (
