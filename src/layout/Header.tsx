@@ -6,8 +6,11 @@ import { NextImage } from "src/component/NextImage";
 import { NortificationMenu } from "src/component/NotificationMenu";
 import { SearchBar } from "src/component/SearchBar";
 import { UserIcon } from "src/component/User/UserIcon";
+import { UserIconMenu } from "src/component/User/UserIconMenu";
 import { useIsDesktop } from "src/utils/customHooks";
 import type { LoginUser } from "src/utils/User";
+
+import { SignupButton } from "@/component/Button/SignupButton";
 
 import { Notification } from "./Nortification";
 
@@ -48,39 +51,38 @@ const Header: FC<HeaderProps> = (props: HeaderProps) => {
                 <UserIcon src="/nouser.svg" width={45} height={45} />
               )}
               {/* todo userを渡す */}
+              <UserIconMenu user={props.user} />
             </Menu>
           </>
         ) : (
-          <div></div>
+          <>
+            <Link href="/signup">
+              <a>
+                <SignupButton
+                  text={isDesktop ? "新規会員登録" : "会員登録"}
+                  bg="blue.300"
+                  color="white"
+                  hover={{ bg: "blue.400" }}
+                />
+              </a>
+            </Link>
+            <Link href="/signin">
+              <a>
+                <SignupButton
+                  text="ログイン"
+                  bg="white"
+                  color="blue.300"
+                  borderColor="blue.300"
+                  hover={{ bg: "blue.300", color: "white" }}
+                  mr="20px"
+                />
+              </a>
+            </Link>
+          </>
         )}
       </Group>
+      {isClient() && !isDesktop && <SearchBar />}
     </Box>
-
-    // <header className="flex fixed top-0 z-20  items-center p-4 w-full">
-    //   <h1 className="flex items-center w-44">
-    //     <Link href="/">
-    //       <a className="contents select-none">
-    //         <NextImage src="/logo.svg" alt="ロゴ" width={160} height={60} />
-    //       </a>
-    //     </Link>
-    //   </h1>
-    //   <nav className="flex  content-end mx-auto">
-    //     <ul className="grid grid-cols-[auto_auto] gap-6 items-center">
-    //       <li className="contents">
-    //         <Link href="/faq">
-    //           <a className="text-white no-underline drop-shadow-[1_1_1_#000000]">
-    //             新規会員登録
-    //           </a>
-    //         </Link>
-    //       </li>
-    //       <li className="contents">
-    //         <a className="py-3 px-8 rounded-2xl border-solid shadow ">
-    //           ログイン
-    //         </a>
-    //       </li>
-    //     </ul>
-    //   </nav>
-    // </header>
   );
 };
 
