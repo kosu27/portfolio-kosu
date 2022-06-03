@@ -2,8 +2,9 @@
 import { Box, Divider, Group, Menu, Text } from "@mantine/core";
 import { useRouter } from "next/router";
 import type { FC } from "react";
-import { auth } from "src/firebase/firebase";
 import type { LoginUser } from "src/utils/User";
+
+// import { auth } from "@/firebase/firebase";
 
 type UserIconMenuProps = {
   user: LoginUser;
@@ -12,10 +13,10 @@ type UserIconMenuProps = {
 const UserIconMenu: FC<UserIconMenuProps> = (props: UserIconMenuProps) => {
   const router = useRouter();
 
-  const handleLogout = async () => {
-    await auth.signOut();
-    router.push("/");
-  };
+  // const handleLogout = async () => {
+  //   await auth.signOut();
+  //   router.push("/");
+  // };
 
   return (
     <Group position="right">
@@ -42,7 +43,7 @@ const UserIconMenu: FC<UserIconMenuProps> = (props: UserIconMenuProps) => {
         >
           アカウント設定
         </Menu.Item>
-        <Menu.Item onClick={handleLogout}>ログアウト</Menu.Item>
+        <Menu.Item>ログアウト</Menu.Item>
         <Box>
           <Menu.Item>カラーモード変更</Menu.Item>
         </Box>
