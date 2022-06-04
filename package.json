@@ -18,7 +18,8 @@
     "fix:lint": "next lint --fix",
     "fix:prettier": "prettier --write .",
     "env": "vc env pull .env.local",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "postcss": {
     "plugins": {
@@ -42,11 +43,11 @@
     "tabler-icons-react": "^1.48.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/cli": "2.6.2",
     "@graphql-codegen/typescript": "^2.4.11",
     "@graphql-codegen/typescript-graphql-request": "^4.4.8",
-    "@graphql-codegen/typescript-operations": "^2.4.0",
-    "@graphql-codegen/typescript-react-apollo": "^3.2.14",
+    "@graphql-codegen/typescript-operations": "2.4.0",
+    "@graphql-codegen/typescript-react-apollo": "3.2.14",
     "@playwright/test": "^1.22.2",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/line-clamp": "^0.4.0",
