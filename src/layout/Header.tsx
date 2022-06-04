@@ -1,29 +1,29 @@
 /* eslint-disable react/destructuring-assignment */
-import { Box, Group, Menu } from "@mantine/core";
-import Link from "next/link";
-import type { FC } from "react";
-import { NextImage } from "src/component/NextImage";
-import { NortificationMenu } from "src/component/NotificationMenu";
-import { SearchBar } from "src/component/SearchBar";
-import { UserIcon } from "src/component/User/UserIcon";
-import { UserIconMenu } from "src/component/User/UserIconMenu";
-import { useIsDesktop } from "src/utils/customHooks";
-import type { LoginUser } from "src/utils/User";
+import { Box, Group, Menu } from '@mantine/core'
+import Link from 'next/link'
+import type { FC } from 'react'
+import { NextImage } from 'src/component/NextImage'
+import { NortificationMenu } from 'src/component/NotificationMenu'
+import { SearchBar } from 'src/component/SearchBar'
+import { UserIcon } from 'src/component/User/UserIcon'
+import { UserIconMenu } from 'src/component/User/UserIconMenu'
+import { useIsDesktop } from 'src/utils/customHooks'
+import type { LoginUser } from 'src/utils/User'
 
-import { SignupButton } from "@/component/Button/SignupButton";
+import { SignupButton } from '@/component/Button/SignupButton'
 
-import { Notification } from "./Nortification";
+import { Notification } from './Nortification'
 
 export type HeaderProps = {
-  user: LoginUser;
-};
+  user: LoginUser
+}
 
 const Header: FC<HeaderProps> = (props: HeaderProps) => {
-  const isDesktop = useIsDesktop();
+  const isDesktop = useIsDesktop()
 
   const isClient = () => {
-    return typeof window !== "undefined";
-  };
+    return typeof window !== 'undefined'
+  }
 
   return (
     <Box className="flex relative z-10 justify-between w-full h-20 bg-gray-100 shadow">
@@ -60,10 +60,10 @@ const Header: FC<HeaderProps> = (props: HeaderProps) => {
             <Link href="/signup">
               <a>
                 <SignupButton
-                  text={isDesktop ? "新規会員登録" : "会員登録"}
+                  text={isDesktop ? '新規会員登録' : '会員登録'}
                   bg="blue.300"
                   color="white"
-                  hover={{ bg: "blue.400" }}
+                  hover={{ bg: 'blue.400' }}
                 />
               </a>
             </Link>
@@ -75,7 +75,7 @@ const Header: FC<HeaderProps> = (props: HeaderProps) => {
                   bg="white"
                   color="blue.300"
                   borderColor="blue.300"
-                  hover={{ bg: "blue.300", color: "white" }}
+                  hover={{ bg: 'blue.300', color: 'white' }}
                   mr="20px"
                 />
               </a>
@@ -85,7 +85,7 @@ const Header: FC<HeaderProps> = (props: HeaderProps) => {
       </Group>
       {isClient() && !isDesktop && <SearchBar />}
     </Box>
-  );
-};
+  )
+}
 
-export { Header };
+export { Header }

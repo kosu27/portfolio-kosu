@@ -2,14 +2,14 @@
  * @jest-environment jsdom
  */
 
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react'
 
-import { Index } from "./";
+import { Index } from './'
 
-describe("Index", () => {
-  it("renders a heading", () => {
-    render(<Index />);
-    const heading = screen.getByRole("heading", { name: /Index/i });
-    expect(heading).toBeInTheDocument();
-  });
-});
+describe('Index', () => {
+  it('renders a heading', () => {
+    render(<Index />)
+    const heading = screen.getByRole('heading', { name: /Index/i })
+    expect(heading).toBeInTheDocument()
+  })
+})

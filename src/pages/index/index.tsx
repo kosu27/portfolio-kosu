@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { FC } from 'react'
 // import { Button } from "src/component/Button";
 // import { useMediaQuery } from "src/component/Mantine/useMediaQuery";
 
@@ -24,5 +24,5 @@ export const Index: FC = () => {
         Click me!
       </Button> */}
     </div>
-  );
-};
+  )
+}

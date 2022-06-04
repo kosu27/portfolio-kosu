@@ -1,11 +1,11 @@
-import Link from "next/link";
-import type { FC } from "react";
+import Link from 'next/link'
+import type { FC } from 'react'
 
 const ITEMS = [
-  { href: "/about", label: "About" },
-  { href: "/support/terms", label: "利用規約" },
-  { href: "/support/privacy-policy", label: "プライバシーポリシー" },
-];
+  { href: '/about', label: 'About' },
+  { href: '/support/terms', label: '利用規約' },
+  { href: '/support/privacy-policy', label: 'プライバシーポリシー' },
+]
 
 export const Footer: FC = () => {
   return (
@@ -20,7 +20,7 @@ export const Footer: FC = () => {
                 </a>
               </Link>
             </li>
-          );
+          )
         })}
       </ul>
 
@@ -28,5 +28,5 @@ export const Footer: FC = () => {
         &copy; 2022 kosu All Rights Reserved.
       </small>
     </footer>
-  );
-};
+  )
+}

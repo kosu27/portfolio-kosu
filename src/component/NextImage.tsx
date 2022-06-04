@@ -1,21 +1,21 @@
-import Image from "next/image";
-import type { FC } from "react";
+import Image from 'next/image'
+import type { FC } from 'react'
 
 export type NextImageProps = {
-  src: string;
-  alt: string;
-  width?: number;
-  height?: number;
-  imageType?: "hero" | "card";
-};
+  src: string
+  alt: string
+  width?: number
+  height?: number
+  imageType?: 'hero' | 'card'
+}
 
 const NextImage: FC<NextImageProps> = (props: NextImageProps) => {
-  const { alt, height, imageType, src, width } = props;
+  const { alt, height, imageType, src, width } = props
 
   return (
     <>
       {imageType ? (
-        imageType === "hero" ? (
+        imageType === 'hero' ? (
           <Image
             src={src}
             alt={alt}
@@ -25,24 +25,13 @@ const NextImage: FC<NextImageProps> = (props: NextImageProps) => {
             objectPosition="55% 30%"
           />
         ) : (
-          <Image
-            src={src}
-            alt={alt}
-            objectFit="contain"
-            width={200}
-            height={200}
-          />
+          <Image src={src} alt={alt} objectFit="contain" width={200} height={200} />
         )
       ) : (
-        <Image
-          src={src}
-          alt={alt}
-          width={width as number}
-          height={height as number}
-        />
+        <Image src={src} alt={alt} width={width as number} height={height as number} />
       )}
     </>
-  );
-};
+  )
+}
 
-export { NextImage };
+export { NextImage }

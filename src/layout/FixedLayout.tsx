@@ -1,8 +1,8 @@
-import type { CustomLayout } from "next";
+import type { CustomLayout } from 'next'
 
-import { Footer } from "./Footer";
-import { Header } from "./Header";
-import { LayoutErrorBoundary } from "./LayoutErrorBoundary";
+import { Footer } from './Footer'
+import { Header } from './Header'
+import { LayoutErrorBoundary } from './LayoutErrorBoundary'
 
 /**
  * @package
@@ -20,5 +20,5 @@ export const FixedLayout: CustomLayout = (page) => {
         <Footer />
       </footer>
     </div>
-  );
-};
+  )
+}

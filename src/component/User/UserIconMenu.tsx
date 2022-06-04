@@ -1,17 +1,17 @@
 /* eslint-disable react/destructuring-assignment */
-import { Box, Divider, Group, Menu, Text } from "@mantine/core";
-import { useRouter } from "next/router";
-import type { FC } from "react";
-import type { LoginUser } from "src/utils/User";
+import { Box, Divider, Group, Menu, Text } from '@mantine/core'
+import { useRouter } from 'next/router'
+import type { FC } from 'react'
+import type { LoginUser } from 'src/utils/User'
 
 // import { auth } from "@/firebase/firebase";
 
 type UserIconMenuProps = {
-  user: LoginUser;
-};
+  user: LoginUser
+}
 
 const UserIconMenu: FC<UserIconMenuProps> = (props: UserIconMenuProps) => {
-  const router = useRouter();
+  const router = useRouter()
 
   // const handleLogout = async () => {
   //   await auth.signOut();
@@ -25,11 +25,11 @@ const UserIconMenu: FC<UserIconMenuProps> = (props: UserIconMenuProps) => {
         withArrow
         placement="center"
         onClick={() => {
-          router.push(`/${props.user?.display_id}`);
+          router.push(`/${props.user?.display_id}`)
         }}
       >
         <Box>
-          <Text size="sm">{props.user?.name ?? "guest"}</Text>
+          <Text size="sm">{props.user?.name ?? 'guest'}</Text>
           <Text size="md">@{props.user?.display_id}</Text>
           <Text color="gray.800" size="xs" mt="1">
             マイページを表示
@@ -38,7 +38,7 @@ const UserIconMenu: FC<UserIconMenuProps> = (props: UserIconMenuProps) => {
         <Menu.Label>Application</Menu.Label>
         <Menu.Item
           onClick={() => {
-            router.push(`/account/profile`);
+            router.push(`/account/profile`)
           }}
         >
           アカウント設定
@@ -53,7 +53,7 @@ const UserIconMenu: FC<UserIconMenuProps> = (props: UserIconMenuProps) => {
         <Menu.Item>アカウント削除</Menu.Item>
       </Menu>
     </Group>
-  );
-};
+  )
+}
 
-export { UserIconMenu };
+export { UserIconMenu }

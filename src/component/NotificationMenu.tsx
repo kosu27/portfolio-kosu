@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-key */
-import { Divider, Menu, Text } from "@mantine/core";
-import type { FC } from "react";
-import { MessageCircle, Photo, Search, Settings } from "tabler-icons-react";
+import { Divider, Menu, Text } from '@mantine/core'
+import type { FC } from 'react'
+import { MessageCircle, Photo, Search, Settings } from 'tabler-icons-react'
 
-const items: JSX.Element[] = [<Text>お知らせ機能は、現在開発中です。</Text>];
+const items: JSX.Element[] = [<Text>お知らせ機能は、現在開発中です。</Text>]
 
 const NortificationMenu: FC = () => {
   return (
@@ -30,11 +30,11 @@ const NortificationMenu: FC = () => {
                 <Divider p={0} m={0} color="gray.300" />
               )}
             </div>
-          );
+          )
         })}
       </Menu>
     </>
-  );
-};
+  )
+}
 
-export { NortificationMenu };
+export { NortificationMenu }
