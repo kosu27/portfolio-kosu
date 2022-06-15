@@ -1,9 +1,0 @@
-overwrite: true
-schema: 'https://portfolio-kosu.hasura.app/v1/graphql'
-documents: 'src/apollo/*.graphql'
-generates:
-  src/apollp/graphql.tsx:
-    plugins:
-      - 'typescript'
-      - 'typescript-operations'
-      - 'typescript-react-apollo'
