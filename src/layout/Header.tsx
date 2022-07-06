@@ -57,7 +57,7 @@ const Header: FC<HeaderProps> = (props: HeaderProps) => {
         ) : (
           <>
             {/* Signup Button */}
-            <Link href="/signup">
+            <Link href="/sign-up">
               <a>
                 <SignupButton
                   text={isDesktop ? '新規会員登録' : '会員登録'}
@@ -68,7 +68,7 @@ const Header: FC<HeaderProps> = (props: HeaderProps) => {
               </a>
             </Link>
             {/* Login Button */}
-            <Link href="/signin">
+            <Link href="/sign-in">
               <a>
                 <SignupButton
                   text="ログイン"
