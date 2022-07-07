@@ -1,9 +1,10 @@
 import '../src/style/index.css'
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
-import { MantineProvider } from '@mantine/core'
+import { NotificationsProvider } from '@mantine/notifications'
 import type { CustomAppPage } from 'next/app'
-import Head from 'next/head'
+
+import { AppMantineProvider, GlobalStyleProvider } from '@/lib/mantine'
 
 const client = new ApolloClient({
   uri: 'https://48p1r2roz4.sse.codesandbox.io',
@@ -19,14 +20,13 @@ const App: CustomAppPage = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Head>
-        <title>ToiletMap</title>
-      </Head>
-      <ApolloProvider client={client}>
-        <MantineProvider withGlobalStyles withNormalizeCSS>
-          {getLayout(<Component {...pageProps} />)}
-        </MantineProvider>
-      </ApolloProvider>
+      <GlobalStyleProvider>
+        <ApolloProvider client={client}>
+          <AppMantineProvider>
+            <NotificationsProvider>{getLayout(<Component {...pageProps} />)}</NotificationsProvider>
+          </AppMantineProvider>
+        </ApolloProvider>
+      </GlobalStyleProvider>
     </>
   )
 }
