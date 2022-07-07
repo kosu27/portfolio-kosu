@@ -1,7 +1,7 @@
 import type { CustomLayout } from 'next'
 
-import { Footer } from './Footer'
-import { Header } from './Header'
+import { Footer } from './DashboardLayout/Footer'
+import { Header } from './DashboardLayout/Header'
 import { LayoutErrorBoundary } from './LayoutErrorBoundary'
 
 /**

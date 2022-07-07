@@ -12,7 +12,7 @@ import type { LoginUser } from 'src/utils/User'
 
 import { SignupButton } from '@/component/Button/SignupButton'
 
-import { Notification } from './Nortification'
+import { Notification } from '../Nortification'
 
 export type HeaderProps = {
   user: LoginUser
