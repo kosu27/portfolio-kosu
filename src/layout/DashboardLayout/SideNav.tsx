@@ -1,7 +1,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { createStyles } from '@mantine/core'
+/* eslint-disable react/jsx-handler-names */
+import { createStyles, Group, MediaQuery, Navbar, Tooltip, UnstyledButton } from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks'
+import Link from 'next/link'
+import type { FC } from 'react'
+import { ArrowLeft, ArrowRight, DeviceAnalytics, Home, Settings } from 'tabler-icons-react'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { getPath } from '@/lib/const'
+import { ActiveLink } from '@/lib/next'
+
 const useStyles = createStyles<string, { collapsed?: boolean }>((theme, params, getRef) => {
   const icon: string = getRef('icon')
 
@@ -80,3 +87,70 @@ const useStyles = createStyles<string, { collapsed?: boolean }>((theme, params, 
     linkLabel: params?.collapsed ? { display: 'none' } : {},
   }
 })
+
+const ITEMS = [
+  { href: getPath('INDEX'), label: 'ホーム', Icon: Home },
+  { href: getPath('SETTINGS'), label: '設定', Icon: Settings },
+]
+
+export const SideNav: FC<{ className?: string }> = ({ className }) => {
+  const [collapsed, handlers] = useDisclosure(false)
+  const { classes, cx } = useStyles({ collapsed })
+
+  return (
+    <Navbar p="md" className={cx(classes.navbar, className)}>
+      <Navbar.Section grow>
+        <Group className={classes.header} position="apart">
+          <Link href={getPath('INDEX')}>
+            <a className={classes.logo}>
+              <DeviceAnalytics />
+              <span className={classes.link}>Admin Dashboard</span>
+            </a>
+          </Link>
+        </Group>
+        {ITEMS.map(({ Icon, href, label }) => {
+          return (
+            <Tooltip
+              key={label}
+              label={label}
+              disabled={!collapsed}
+              position="right"
+              withArrow
+              sx={{ width: '100%' }}
+            >
+              <ActiveLink href={href} passHref>
+                {(isActive) => {
+                  return (
+                    <a
+                      className={cx(classes.link, {
+                        [classes.linkActive]: isActive,
+                      })}
+                    >
+                      <Icon className={classes.linkIcon} />
+                      <span className={classes.linkLabel}>{label}</span>
+                    </a>
+                  )
+                }}
+              </ActiveLink>
+            </Tooltip>
+          )
+        })}
+      </Navbar.Section>
+
+      <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+        <Navbar.Section className={classes.footer}>
+          <UnstyledButton className={classes.link} onClick={handlers.toggle}>
+            {collapsed ? (
+              <ArrowRight className={classes.linkIcon} />
+            ) : (
+              <>
+                <ArrowLeft className={classes.linkIcon} />
+                <span>折りたたむ</span>
+              </>
+            )}
+          </UnstyledButton>
+        </Navbar.Section>
+      </MediaQuery>
+    </Navbar>
+  )
+}
