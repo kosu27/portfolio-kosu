@@ -1,4 +1,4 @@
-export { Footer } from './DashboardLayout/Footer'
-export { Header } from './DashboardLayout/Header'
+export { AuthLayout } from './AuthLayout'
+export { DashboardLayout } from './DashboardLayout'
 export { FixedLayout } from './FixedLayout'
 export { FluidLayout } from './FluidLayout'
