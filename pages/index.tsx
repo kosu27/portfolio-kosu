@@ -1,11 +1,11 @@
 import type { CustomNextPage } from 'next'
-import { FluidLayout } from 'src/layout'
+import { DashboardLayout } from 'src/layout'
 import { Index } from 'src/pages/index'
 
 const IndexPage: CustomNextPage = () => {
   return <Index />
 }
 
-IndexPage.getLayout = FluidLayout
+IndexPage.getLayout = DashboardLayout
 
 export default IndexPage
