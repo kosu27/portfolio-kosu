@@ -21,6 +21,11 @@ const SideNav = dynamic(async () => {
   return SideNav
 })
 
+const Footer = dynamic(async () => {
+  const { Footer } = await import('./Footer')
+  return Footer
+})
+
 export const DashboardLayout: CustomLayout = (page) => {
   const [opened, handlers] = useDisclosure(false)
 
@@ -53,6 +58,9 @@ export const DashboardLayout: CustomLayout = (page) => {
           </MediaQuery>
         }
       />
+
+      <Footer />
+
       <Box py="xl" px="md">
         <LayoutErrorBoundary>{page}</LayoutErrorBoundary>
       </Box>
@@ -93,6 +101,7 @@ const DrawerNav: FC<{ opened: boolean; handleClose: () => void }> = ({ handleClo
           '&:not(:disabled):active': { transform: 'none' },
         }}
       />
+
       <SideNav />
     </Drawer>
   )
