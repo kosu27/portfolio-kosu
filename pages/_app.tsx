@@ -23,7 +23,9 @@ const App: CustomAppPage = ({ Component, pageProps }) => {
       <GlobalStyleProvider>
         <ApolloProvider client={client}>
           <AppMantineProvider>
-            <NotificationsProvider>{getLayout(<Component {...pageProps} />)}</NotificationsProvider>
+            <NotificationsProvider limit={2}>
+              {getLayout(<Component {...pageProps} />)}
+            </NotificationsProvider>
           </AppMantineProvider>
         </ApolloProvider>
       </GlobalStyleProvider>
