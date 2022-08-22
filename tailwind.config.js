@@ -171,6 +171,7 @@ const mantineColors = {
   },
 }
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: 'jit',
   content: ['./pages/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
@@ -192,4 +193,7 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
   ],
+  corePlugins: {
+    preflight: false,
+  },
 }
